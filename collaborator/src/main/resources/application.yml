@@ -1,0 +1,25 @@
+server:
+  port: 8181
+  servlet:
+    context-path: /pharmacollab
+
+spring:
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      #dialect: org.hibernate.dialect.H2Dialect
+      dialect: org.hibernate.dialect.Oracle10gDialect
+  h2:
+    console:
+      enabled: true
+      path: /collabdb
+  datasource:
+    platform: h2
+    url: jdbc:h2:file:./pharmadb/collabdb;DB_CLOSE_DELAY=-1;Mode=Oracle;AUTO_SERVER=true;DATABASE_TO_UPPER=false
+    #    url: jdbc:h2:mem:pharmadb;DB_CLOSE_DELAY=-1;Mode=Oracle;AUTO_SERVER=true;DATABASE_TO_UPPER=false
+    username: sa
+    password:
+  flyway:
+    placeholder-replacement: false
+    baseline-on-migrate: true
